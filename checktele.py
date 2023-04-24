@@ -200,7 +200,7 @@ async def _(event):
 @sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
 async def _(event):
     if ispay2[0] == "yes":
-        await istnt.send_file(event.chat_id, 'banned.txt')
+        await sedthon.send_file(event.chat_id, 'banned.txt')
 
 
 @sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
@@ -273,7 +273,7 @@ async def _(event):
                     if "A wait of" in str(eee):
                         break
                     else:
-                        await istnt.send_message(event.chat.id, " اجاك متاح !")
+                        await sedthon.send_message(event.chat.id, " اجاك متاح !")
             else:
                 pass
             trys += 1
