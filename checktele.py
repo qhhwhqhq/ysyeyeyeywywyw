@@ -255,8 +255,7 @@ async def _(event):
        
 @sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت (.*)"))
 async def _(event):
-    if ispay2[0] == "yes":
-        trys = 0
+    if ispay2[0] == "yes":        trys = 0
         msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
         if msg[0] == "تلقائي":  # تثبيت تلقائي عدد يوزر قناة
             isauto.clear()
