@@ -1,5 +1,4 @@
 import random
-import threading
 import asyncio
 import telethon
 from telethon import events
@@ -41,24 +40,25 @@ def check_user(username):
     else:
         return "Unavailable"
 
+
 def gen_user(choice):
     if choice == "1":
-        c = random.choices(a)
+        c = d = random.choices(a)
         d = random.choices(b)
-        s = random.choices(e)
-        f = [c[0], "_", d[0], "_", s[0]]
+        f = [c[0], d[0], c[0], c[0], c[0], d[0]]
+        random.shuffle(f)
         username = ''.join(f)
         if username in banned[0]:
-            c = random.choices(a)
+            c = d = random.choices(a)
             d = random.choices(b)
-            s = random.choices(e)
-            f = [c[0], "_", d[0], "_", s[0]]
+            f = [c[0], d[0], c[0], c[0], c[0], d[0]]
+            random.shuffle(f)
             username = ''.join(f)
         else:
             pass
     if choice == "2":
         c = random.choices(a)
-        d = random.choices(a)
+        d = random.choices(b)
         s = random.choices(e)
         f = [c[0], "_", d[0], "_", s[0]]
         username = ''.join(f)
@@ -71,21 +71,17 @@ def gen_user(choice):
         else:
             pass
     if choice == "3":
-        c = random.choices(a)
+        c = d = random.choices(a)
         d = random.choices(b)
-        s = random.choices(e)
-        f = [c[0], s[0]]
+        f = [c[0], c[0], c[0], c[0], c[0], d[0]]
         random.shuffle(f)
         username = ''.join(f)
-        username = username+'bot'
         if username in banned[0]:
-            c = random.choices(a)
+            c = d = random.choices(a)
             d = random.choices(b)
-            s = random.choices(e)
-            f = [c[0], s[0]]
+            f = [c[0], c[0], c[0], c[0], c[0], d[0]]
             random.shuffle(f)
             username = ''.join(f)
-            username = username+'bot'
         else:
             pass
     if choice == "4":
@@ -109,49 +105,7 @@ def gen_user(choice):
     if choice == "5":
         c = d = random.choices(a)
         d = random.choices(b)
-        f = [c[0], d[0], c[0], c[0], c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f = [c[0], d[0], c[0], c[0], c[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "6":
-        c = d = random.choices(a)
-        d = random.choices(b)
         f = [c[0], d[0], c[0], c[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f = [c[0], d[0], c[0], c[0], d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "7":
-        c = d = random.choices(a)
-        d = random.choices(b)
-        f = [c[0], c[0], c[0], c[0], c[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f = [c[0], c[0], c[0], c[0], c[0], d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "8":
-        c = d = random.choices(a)
-        d = random.choices(b)
-        f = [c[0], d[0], c[0], c[0], c[0], d[0]]
         random.shuffle(f)
         username = ''.join(f)
         if username in banned[0]:
@@ -162,7 +116,19 @@ def gen_user(choice):
             username = ''.join(f)
         else:
             pass
-    if choice == "9":
+    if choice == "6":
+        c = d = random.choices(a)
+        d = random.choices(b)
+        f = [c[0], c[0], c[0], c[0], d[0]]
+        random.shuffle(f)
+        username = ''.join(f)
+        if username in banned[0]:
+            c = d = random.choices(a)
+            d = random.choices(b)
+            f = [c[0], c[0], c[0], c[0], d[0]]
+            random.shuffle(f)
+            username = ''.join(f)
+    if choice == "7":
         c = d = random.choices(a)
         d = random.choices(b)
         f = [c[0], c[0], c[0], c[0], d[0], c[0], c[0]]
@@ -171,43 +137,55 @@ def gen_user(choice):
         if username in banned[0]:
             c = d = random.choices(a)
             d = random.choices(b)
-            f = [c[0], c[0], c[0], c[0], d[0], c[0], c[0]]
+            f = [c[0], c[0], c[0], c[0], d[0]]
             random.shuffle(f)
             username = ''.join(f)
-        else:
-            pass
-    if choice == "10":
-        c = d = random.choices(a)
+    if choice == "8":
+        c = random.choices(a)
         d = random.choices(b)
-        f = [c[0], d[0], "_", c[0], c[0]]
+        s = random.choices(e)
+        f = [c[0], s[0]]
         random.shuffle(f)
         username = ''.join(f)
+        username = username+'bot'
         if username in banned[0]:
-            c = d = random.choices(a)
+            c = random.choices(a)
             d = random.choices(b)
-            f = [c[0], d[0], "_", c[0], c[0]]
+            s = random.choices(e)
+            f = [c[0], s[0]]
             random.shuffle(f)
             username = ''.join(f)
+            username = username+'bot'
         else:
             pass
     return username
 
-@sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.تشيكر"))
+
+@sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.تشيكر تلي"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker)
-        
+    else:
+        await event.edit("يجب الدفع لاستعمال هذا الامر !")
+
+
 @sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
 async def _(event):
     if ispay2[0] == "yes":
         await sedthon.send_file(event.chat_id, 'banned.txt')
+    else:
+        await event.edit("يجب الدفع لاستعمال هذا الامر !")
 
 
 @sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker2)
-# صيد عدد نوع قناة
+    else:
+        await event.edit("يجب الدفع لاستعمال هذا الامر !")
+
+
+# كلايم عدد نوع قناة
 
 
 @sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.صيد (.*)"))
@@ -221,11 +199,11 @@ async def _(event):
         trys = 0
         await event.edit(f"حسناً سأفحص نوع `{choice}` من اليوزرات على `{ch}` , بعدد `{msg[0]}` من المحاولات !")
 
-        @sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
+        @sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.حالة صيد"))
         async def _(event):
             if ispay2[0] == "yes":
                 if "on" in isclaim:
-                    await event.edit(f"الصيد وصل لـ({trys}) من المحاولات")
+                    await event.edit(f"صيد وصل لـ({trys}) من المحاولات")
                 elif "off" in isclaim:
                     await event.edit("لايوجد صيد شغال !")
                 else:
@@ -244,23 +222,12 @@ async def _(event):
             t.join()
             isav = que.get()
             if "Available" in isav:
-                await asyncio.sleep(0)
+                await asyncio.sleep(1)
                 try:
                     await sedthon(functions.channels.UpdateUsernameRequest(
                         channel=ch, username=username))
                     await event.client.send_message(event.chat_id, f'''
-●━━━━━━━━●
-┏━━━━━┓
-- By ↣ @X_K_5
-┗━━━━━┛
-┏━━━━━┓
-↣ (@{username})
-┗━━━━━┛
-┏━━━━━┓
-- By ↣@Is_TNT
-┗━━━━━┛
-●━━━━━━━━●
-
+    تم صيد (@{username}) !
     ''')
                     break
                 except telethon.errors.rpcerrorlist.UsernameInvalidError:
@@ -273,7 +240,7 @@ async def _(event):
                     if "A wait of" in str(eee):
                         break
                     else:
-                        await sedthon.send_message(event.chat.id, " اجاك متاح !")
+                        await sedthon.send_message(event.chat.id, "سأستمر بلفحص !")
             else:
                 pass
             trys += 1
@@ -281,8 +248,11 @@ async def _(event):
         isclaim.clear()
         isclaim.append("off")
         trys = ""
-        await event.client.send_message(event.chat_id, "! انتهى الصيد")
-        
+        await event.client.send_message(event.chat_id, "تم الانتهاء من الفحص")
+    else:
+        await event.edit("يجب الدفع لاستعمال هذا الامر !")
+
+
 @sedthon.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت (.*)"))
 async def _(event):
     if ispay2[0] == "yes":
@@ -317,18 +287,7 @@ async def _(event):
                         await sedthon(functions.channels.UpdateUsernameRequest(
                             channel=ch, username=username))
                         await event.client.send_message(event.chat_id, f'''
-●━━━━━━━━●
-┏━━━━━┓
-- By ↣ @X_K_5
-┗━━━━━┛
-┏━━━━━┓
-↣ (@{username})
-┗━━━━━┛
-┏━━━━━┓
-- By ↣@Is_TNT
-┗━━━━━┛
-●━━━━━━━━●
-
+    تم صيد (@{username}) !
     ''')
                         break
                     except telethon.errors.rpcerrorlist.UsernameInvalidError:
@@ -336,7 +295,7 @@ async def _(event):
                         break
                     except Exception as eee:
 
-                        await istnt.send_message(event.chat_id, f'''خطأ مع {username}
+                        await sedthon.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
                         if "A wait of" in str(eee):
@@ -359,18 +318,7 @@ async def _(event):
                 await sedthon(functions.channels.UpdateUsernameRequest(
                     channel=ch, username=username))
                 await event.client.send_message(event.chat_id, f'''
-●━━━━━━━━●
-┏━━━━━┓
-- By ↣ @X_K_5
-┗━━━━━┛
-┏━━━━━┓
-↣ (@{username})
-┗━━━━━┛
-┏━━━━━┓
-- By ↣@Is_TNT
-┗━━━━━┛
-●━━━━━━━━●
-
+    تم صيد (@{username}) !
     ''')
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
                 await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
@@ -378,13 +326,6 @@ async def _(event):
                 await sedthon.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
-Threads=[] 
-for t in range(100):
-    x = threading.Thread(target=_)
-    le = threading.Thread(target=gen_user)
-    x.start()
-    le.start()
-    Threads.append(x)
-    Threads.append(le)
-for Th in Threads:
-    Th.join()
+
+    else:
+        await event.edit("يجب الدفع لاستعمال هذا الامر !")
