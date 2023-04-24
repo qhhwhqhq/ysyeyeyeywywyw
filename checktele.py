@@ -246,7 +246,7 @@ async def _(event):
             if "Available" in isav:
                 await asyncio.sleep(0)
                 try:
-                    await istnt(functions.channels.UpdateUsernameRequest(
+                    await sedthon(functions.channels.UpdateUsernameRequest(
                         channel=ch, username=username))
                     await event.client.send_message(event.chat_id, f'''
 ●━━━━━━━━●
@@ -267,7 +267,7 @@ async def _(event):
                     with open("banned.txt", "a") as f:
                         f.write(f"\n{username}")
                 except Exception as eee:
-                    await istnt.send_message(event.chat_id, f'''خطأ مع {username}
+                    await sedthon.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
                     if "A wait of" in str(eee):
@@ -375,7 +375,7 @@ async def _(event):
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
                 await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
             except Exception as eee:
-                await istnt.send_message(event.chat_id, f'''خطأ مع {username}
+                await sedthon.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
 Threads=[] 
